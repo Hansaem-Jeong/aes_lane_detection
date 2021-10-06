@@ -1,0 +1,17 @@
+mode: 'test'
+exp_name: 'laneatt_r18_culane'
+cfg: None
+resume: False
+epoch: None
+cpu: False
+save_predictions: False
+view: all
+test_first_dir: 'data2/lane_data/ckpt/'
+test_second_dir: 'result_'
+test_dataset: 'kodasv1'
+video_name: 'video_name'
+conf_threshold: 0.4
+nms_thres: 45.
+max_lane: 2
+data_dir: 'data2/datasets/KODAS1/Input/'
+deteministic: False

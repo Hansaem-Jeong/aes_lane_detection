@@ -1,0 +1,15 @@
+scripts/data/*
+
+scripts/data2/*
+
+checkpoints/*
+
+scripts/experiments/*
+
+data2/**/*.jpg
+
+data2/**/*.avi
+
+
+
+cache/*.json

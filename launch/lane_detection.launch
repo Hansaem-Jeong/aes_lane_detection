@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    
+    <!--arg name="lane_param_file"        default="$(find lane_detection)/config/aes.yaml"/-->
+
+    <!--rosparam command="load" ns="lane_detection" file="$(arg lane_param_file)"/-->
+
+    <arg name="mode" default="test"/>
+    <arg name="exp_name" default="laneatt_r18_culane"/>
+    <arg name="cfg" default="None"/>
+    <arg name="resume" default="False"/>
+    <arg name="epoch" default="None"/>
+    <arg name="cpu" default="False"/>
+    <arg name="save_predictions" default="False"/>
+    <arg name="view" default="all"/>
+    <arg name="test_first_dir" default="$(find lane_detection)/data2/lane_data/ckpt/"/>
+    <arg name="test_second_dir" default="result_"/>
+    <arg name="test_dataset" default="kodasv1"/>
+    <arg name="video_name" default="video_name"/>
+    <arg name="conf_threshold" default="0.4"/>
+    <arg name="nms_thres" default="45."/>
+    <arg name="max_lane" default="2"/>
+    <arg name="data_dir" default="$(find lane_detection)/scripts/data2/datasets/KODAS1/Input/"/>
+    <arg name="deterministic" default="False"/>
+    <arg name="exps_basedir" default="$(find lane_detection)/scripts/experiments"/>
+    <arg name="package_path" default="$(find lane_detection)"/>
+    <arg name="camera_topic" default="/realsense_rgb/image_raw"/>
+
+    <node pkg="lane_detection" type="lane_detection_node.py" name="lane_detection_node" output="screen">
+
+        <param name="mode" value="$(arg mode)"/> 
+        <param name="exp_name" value="$(arg exp_name)"/>
+        <param name="cfg" value="$(arg cfg)"/>
+        <param name="resume" value="$(arg resume)"/>
+        <param name="epoch" value="$(arg epoch)"/>
+        <param name="cpu" value="$(arg cpu)"/>
+        <param name="save_predictions" value="$(arg save_predictions)"/>
+        <param name="view" value="$(arg view)"/>
+        <param name="test_first_dir" value="$(arg test_first_dir)"/>
+        <param name="test_second_dir" value="$(arg test_second_dir)"/>
+        <param name="test_dataset" value="$(arg test_dataset)"/>
+        <param name="video_name" value="$(arg video_name)"/>
+        <param name="conf_threshold" value="$(arg conf_threshold)"/>
+        <param name="nms_thres" value="$(arg nms_thres)"/>
+        <param name="max_lane" value="$(arg max_lane)"/>
+        <param name="data_dir" value="$(arg data_dir)"/>
+        <param name="deterministic" value="$(arg deterministic)"/>
+        <param name="exps_basedir" value="$(arg exps_basedir)"/>
+        <param name="package_path" value="$(arg package_path)"/>
+        <param name="camera_topic" value="$(arg camera_topic)"/>
+ 
+
+    </node>
+
+
+
+
+
+
+</launch>
