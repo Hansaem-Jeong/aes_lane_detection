@@ -61,6 +61,7 @@ class NoLabelDataset(LaneDatasetLoader):
         return "", None
 
     def __getitem__(self, idx):
+        idx = 0 # hansaem webcam
         return self.annotations[idx]
 
     def __len__(self):

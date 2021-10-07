@@ -227,7 +227,6 @@ class Runner:
             print("Waiting for {0:s} camera data...".format(self.camera_topic))
             sleep(2)
 
-        print("hansaem check 1")
 ### Multi-
 #        self.lock.acquire()
 #        images_p = self.numpy_to_torch(self.camera_image)
@@ -235,10 +234,8 @@ class Runner:
 #        self.input_image = images_p
 
         self.preprocess(self.camera_image)
-        print("hansaem check 2")
 #        self.preprocess(self.input_image)
         self.inference_image(self.image_infer, model, test_parameters)
-        print("hansaem check 3")
         self.preprocess(self.camera_image)
 
 #        self.lock.acquire()
@@ -338,18 +335,18 @@ class Runner:
             cycle_times = after_cycle - start_times
             self.display_time = display_end - display_start
             
-            print("      Cycle time :", cycle_times, "ms")
-            print("  Inference time :", self.inference_time, "ms")
-            print(" Preprocess time :", self.preprocess_time, "ms")
-            print("    Display time :", self.display_time, "ms")
+            print(self.count, "-th count")
+            print("      Cycle time :{:.1f}".format(cycle_times * 1000.), "ms")
+            print("  Inference time :{:.1f}".format(self.inference_time * 1000.), "ms")
+            print(" Preprocess time :{:.1f}".format(self.preprocess_time * 1000.), "ms")
+            print("    Display time :{:.1f}".format(self.display_time * 1000.), "ms")
 
             self.count += 1
-            if self.count == 800:
-                break
+#            if self.count == 800:
+#                break
 
 
 
-        print("hansaem hansaem hansaem\n")
         image_folder = self.log_dir
         video_name =  self.log_dir+self.video_name+'.avi'
         images = [img for img in os.listdir(image_folder) if img.endswith(".jpg")]
