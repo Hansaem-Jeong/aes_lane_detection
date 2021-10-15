@@ -237,6 +237,8 @@ class LaneDataset(Dataset):
                     else:
                         color = [(0, 0, 255)]
 
+
+
             num=0
             for i, l in enumerate(datum):
                 # if matches is None:
@@ -265,8 +267,10 @@ class LaneDataset(Dataset):
                                    tuple(next_p),
                                    color=color[num],
                                    thickness=3 if matches is None else 3)
-                #num+=1
-                num=0
+#hansaem
+                num+=1
+                #num=0
+
                 # if 'start_x' in l.metadata:
                 #     start_x = l.metadata['start_x'] * img.shape[1]
                 #     start_y = l.metadata['start_y'] * img.shape[0]
